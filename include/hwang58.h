@@ -16,6 +16,7 @@
 #include <sstream>
 #include <algorithm>
 #include <iterator>
+#include <ifaddrs.h>
 
 #include "../include/global.h"
 #include "../include/logger.h"
