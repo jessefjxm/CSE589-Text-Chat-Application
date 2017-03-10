@@ -30,6 +30,18 @@ void initClientSocket(char* port) { initMyAddress(port); }
 
 void initServerSocket(char* port) {
   initMyAddress(port);
+
+  int status;
+  struct addrinfo hints;
+  memset(&hints, 0, sizeof hints);  // 确保 struct 为空
+  hints.ai_family = AF_INET;        // IPv4
+  hints.ai_socktype = SOCK_STREAM;  // TCP stream sockets
+  hints.ai_flags = AI_PASSIVE;      // 帮我填好我的 IP
+
+  if ((status = getaddrinfo(NULL, port, &hints, &myAddrInfo)) != 0) {
+    exit(1);
+  }
+
   int opt = 1;
   sockfd = socket(myAddrInfo->ai_family, myAddrInfo->ai_socktype,
                   myAddrInfo->ai_protocol);
