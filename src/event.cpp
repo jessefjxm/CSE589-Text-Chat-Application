@@ -64,13 +64,7 @@ void eventSend(vector<string> cmd, int cmdArgc, int cfd, string orinmsg) {
 
   string goalIP = cmd[1];
   HostData* goalhd = getHostData(goalIP);
-  if (goalhd == NULL) {
-    msg = "SENDFAIL\n";
-    send(cfd, msg.c_str(), strlen(msg.c_str()), 0);
-    cmdError(event);
-    return;
-  }
-  if(checkIfIPBlocked(goalhd, senderIP) == false){
+  if (goalhd != NULL && checkIfIPBlocked(goalhd, senderIP) == false){
     if (goalhd->status == "logged-in") {
       send(goalhd->cfd, msg.c_str(), strlen(msg.c_str()), 0);
     } else {

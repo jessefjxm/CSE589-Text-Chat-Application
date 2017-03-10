@@ -23,7 +23,7 @@ void cmdIP(string cmd) {
 
 void cmdPort(string cmd) {
   cse4589_print_and_log("[%s:SUCCESS]\n", cmd.c_str());
-  cse4589_print_and_log("IP:%s\n", myPORT.c_str());
+  cse4589_print_and_log("PORT:%s\n", myPORT.c_str());
   cse4589_print_and_log("[%s:END]\n", cmd.c_str());
 }
 

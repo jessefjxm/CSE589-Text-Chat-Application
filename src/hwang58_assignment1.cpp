@@ -97,7 +97,7 @@ void serverProcess(char* port) {
   char buf[65535];                            // msg & commands buffer
   fd_set readfds;                             // for select
   int cfd;                                    // client's file descriptor
-  int clientSocket[MAX_SERVER_CONN];
+  int clientSocket[MAX_SERVER_CONN] = {0};
   int fdmax = sockfd;
   // core loop
   while (1) {
