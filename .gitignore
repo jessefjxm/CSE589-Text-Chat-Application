@@ -32,6 +32,6 @@
 *.app
 
 # Directory
-logs/
-object/
+logs/*
+object/*
 
